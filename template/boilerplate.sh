@@ -13,12 +13,13 @@ script_repository=""
 script_description=""
 
 centre() {
-  length=${#1}
-  if [[ $length -lt 80 ]]; then
-    printf "%*s\n" $((($length+80)/2)) "$1"
-  else
-    echo "$1" | fold -w 80
-  fi
+  folded=$(printf "$1" | fold -w 80 -s)
+  count=$(printf "$folded" | grep "" -c)
+  for (( i = 1; i <= $count; i++ )); do
+    line=$(printf "$folded" | grep "" -m "$i" | tail -1)
+    length=${#line}
+    printf "%*s\n" $((($length+80)/2)) "$line"
+  done
 }
 
 header(){
