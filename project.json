@@ -1,7 +1,7 @@
 {
   "name": "Shellplate",
   "author": "DarkGuy10",
-  "version": "1.0",
+  "version": "1.1",
   "repository": "https://github.com/DarkGuy10/Shellplate",
   "description": "A neat boilerplate for shell scripts."
 }
