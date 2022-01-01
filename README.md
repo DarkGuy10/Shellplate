@@ -80,4 +80,4 @@ By default the `<ProjectName>.sh` script file contains a few utility functions f
 - `header "some title"` - Print a bold header in centre, bounded by `「  」`
 
 ## Changelog
-Changelog can be found here.
+Changelog can be found [here](CHANGELOG/).
