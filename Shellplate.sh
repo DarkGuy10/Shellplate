@@ -12,6 +12,7 @@ script_author=""
 script_version=""
 script_repository=""
 script_description=""
+available_fonts=(graffiti)
 
 centre() {
   length=${#1}
@@ -61,7 +62,7 @@ load_script_variables() {
 
 pretty_banner() {
   clear
-  figlet -f graffiti -k -c "$script_name"
+  figlet -f fonts/graffiti -k -c "$script_name"
   printf '=%.0s' {1..80}
   printf "\n"
   tput bold; centre "$script_description"; tput sgr0
@@ -94,6 +95,7 @@ main(){
   header "SHELLPLATE WIZARD"
   create_script_name=""
   create_script_author=""
+  create_script_font=""
 
   while [[ -z "$create_script_name" ]]; do
     printf "[ ? ] Project Name (required): "
@@ -113,6 +115,15 @@ main(){
   if [[ -z "$create_script_version" ]]; then
     create_script_version="1.0"
   fi
+
+  while [[ ! " ${available_fonts[*]} " =~ " ${create_script_font} " ]]; do
+    printf "[ ? ] ASCII art font (default=graffiti): "
+    read create_script_font
+    if [[ -z "$create_script_font" ]]; then
+      create_script_font=graffiti
+      break
+    fi
+  done
 
   printf "[ ? ] Default git branch (default=main): "
   read default_branch
@@ -145,7 +156,7 @@ main(){
 
   echo "$create_script_json" | jq . > project.json
   echo -e "# $create_script_name\n $create_script_description" > README.md
-  figlet -f ../../graffiti -k -c "$create_script_name" > ascii_art.txt
+  figlet -f ../../fonts/"$create_script_font" -c "$create_script_name" > ascii_art.txt
   echo -e "jq\nfmt\ntput" > requirements.txt
   cat ../../template/boilerplate.sh > "$create_script_name.sh"
 
