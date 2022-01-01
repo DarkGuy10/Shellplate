@@ -40,6 +40,8 @@ These can also be found in `requirements.txt`
     bash Shellplate.sh
     ```
 3. If during the dependency check, any of the packages are marked `UNMET`, manually install them and rerun the script.
+4. Your project is created at `out/<ProjectName>/`. Open the `<ProjectName>.sh` file in the directory and place your code in the `main()` function.
+5. Happy scripting!
 
 ## Features in development
 - Support for custom and prebuilt ANSII-based UI color schemes
@@ -77,7 +79,7 @@ These can also be found in `requirements.txt`
 By default the `<ProjectName>.sh` script file contains a few utility functions for easier UI/UX management.
 - `pretty_banner` - clears the screen and prints a banner showing project name ASCII art and other details
 - `centre "some text"` - Print some text in centre of a region of 80 columns (80 is the maximum number of columns in the UI)
-- `header "some title"` - Print a bold header in centre, bounded by `「  」`
+- `header "some title"` - Print a bold header in centre, bounded by `[]`
 
 ## Changelog
 Changelog can be found [here](CHANGELOG/).
