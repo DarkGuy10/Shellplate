@@ -1,0 +1,6 @@
+git
+jq
+curl
+tput
+fmt
+figlet
